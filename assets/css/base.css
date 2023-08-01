@@ -1,0 +1,34 @@
+@font-face {
+  font-family: 'Red Hat Text';
+  src: url('../font/RedHatText-Bold.ttf');
+  font-weight: 700;
+  font-style: normal;
+}
+
+:root {
+  --grayish-blue: hsl(237, 18%, 59%);
+  --soft-red: hsl(345, 95%, 68%);
+
+  --white: hsl(0, 0%, 100%);
+  --dark-desaturated-blue: hsl(236, 21%, 26%);
+  --dark-blue: hsl(235, 16%, 14%);
+  --very-dark-blue: hsl(234, 17%, 12%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: 'Red Hat Text', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
