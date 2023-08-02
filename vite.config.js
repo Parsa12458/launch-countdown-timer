@@ -1,18 +1,21 @@
-import { defineConfig } from "vite";
-import compression from "vite-plugin-compression";
-import legacy from "@vitejs/plugin-legacy";
-import autoprefixer from "autoprefixer";
-import viteImagemin from "vite-plugin-imagemin";
-import inject from "@rollup/plugin-inject";
+import { defineConfig } from 'vite';
+import compression from 'vite-plugin-compression';
+import legacy from '@vitejs/plugin-legacy';
+import autoprefixer from 'autoprefixer';
+import viteImagemin from 'vite-plugin-imagemin';
+import inject from '@rollup/plugin-inject';
 
 export default defineConfig({
-  base: "",
+  base: '',
+  build: {
+    outDir: 'docs',
+  },
 
   // Configure Vite plugins
   plugins: [
     compression(),
     legacy({
-      targets: ["defaults", "not IE 11"],
+      targets: ['defaults', 'not IE 11'],
     }),
     viteImagemin({
       gifsicle: {
@@ -31,22 +34,22 @@ export default defineConfig({
       },
       svgo: {
         plugins: [
-          { name: "removeViewBox" },
-          { name: "removeEmptyAttrs", active: false },
+          { name: 'removeViewBox' },
+          { name: 'removeEmptyAttrs', active: false },
         ],
       },
     }),
     inject({
       modules: {
-        regeneratorRuntime: "regenerator-runtime/runtime",
+        regeneratorRuntime: 'regenerator-runtime/runtime',
       },
     }),
   ],
 
   // Configure Babel
   esbuild: {
-    jsxFactory: "h",
-    jsxFragment: "Fragment",
+    jsxFactory: 'h',
+    jsxFragment: 'Fragment',
     jsxInject: `import { h, Fragment } from 'preact'`,
   },
 
@@ -59,6 +62,6 @@ export default defineConfig({
 
   // Polyfill async functions
   optimizeDeps: {
-    include: ["regenerator-runtime/runtime"],
+    include: ['regenerator-runtime/runtime'],
   },
 });
